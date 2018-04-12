@@ -201,6 +201,6 @@ fabric.properties
 
 # Sonarlint plugin
 .idea/sonarlint
-todomvc/public/
+b4a/public/
 
 # End of https://www.gitignore.io/api/node,angular,webstorm

@@ -6,7 +6,7 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build --prod",
-    "deploy": "npm run build && rm -rf todomvc/public && mv dist todomvc/public && cd todomvc && b4a deploy",
+    "deploy": "npm run build && rm -rf b4a/public && mv dist b4a/public && cd b4a && b4a deploy",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"
