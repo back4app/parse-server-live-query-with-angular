@@ -6,7 +6,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 ## Config and deploy
 
 Before run, change Parse keys at /src/environments.
-Before deploy (`npm run deploy`) change the files /todomvc/.parse.local and /todomvc/.parse.project.
+Before deploy (`npm run deploy`) change the files /b4a/.parse.local and /b4a/.parse.project.
 
 Run `npm run deploy` to deploy into Back4App
 
