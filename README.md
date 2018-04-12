@@ -1,6 +1,14 @@
 # MyApp
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.7.4.
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) and [Back4App CLI](https://blog.back4app.com/2017/01/20/cli-parse-server)
+
+
+## Config and deploy
+
+Before run, change Parse keys at /src/environments.
+Before deploy (`npm run deploy`) change the files /todomvc/.parse.local and /todomvc/.parse.project.
+
+Run `npm run deploy` to deploy into Back4App
 
 ## Development server
 
