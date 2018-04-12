@@ -1,0 +1,24 @@
+<div align="center">
+  <h1>
+    Back4App Demo!
+  </h1>
+  <img src="../assets/back4app.png">
+
+  <h2>Lista de tarefas: </h2>
+  <button (click)="clearCompleted()">Apagar finalizadas</button> &nbsp; <button (click)="clearAll()">Apagar todas</button>
+  <br>
+  <br>
+  <input (keyup.enter)="saveTodo()" [(ngModel)]="title" placeholder="O que você não pode esquecer?"/>
+
+  <ul class="list">
+    <li class="list-item" *ngFor="let todo of todos;">
+      <input type="checkbox" class="hidden-box" [id]="todo.id" (click)="toggleCompleted(todo)" [checked]="todo.get('completed')"/>
+      <label [for]="todo.id" class="check--label">
+        <span class="check--label-box"></span>
+        <span class="check--label-text">{{todo.get('title')}}</span>
+      </label>
+    </li>
+
+  </ul>
+
+</div>
