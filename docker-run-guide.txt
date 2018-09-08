@@ -1,0 +1,10 @@
+docker run -p 27017:27017 --name my-mongo -d mongo:windowsservercore
+
+$mongoip = docker inspect --format '{{ .NetworkSettings.Networks.nat.IPAddress }}' my-mongo
+docker run -p 1337:1337 --name my-parse-server -d parseplatform/parse-server --appId APPLICATION_ID --masterKey MASTER_KEY --databaseURI mongodb://$mongoip/test --startLiveQueryServer true --liveQuery '{\"classNames\":[\"Todo\"]}'
+
+docker run -d -p 4040:4040 -e PARSE_DASHBOARD_CONFIG='{\"apps\":[{\"appId\":\"APPLICATION_ID\",\"serverURL\":\"http://localhost:1337/parse\",\"masterKey\":\"MASTER_KEY\",\"appName\":\"TestApp\"}],\"users\":[{\"user\":\"admin\",\"pass\":\"admin\"}]}' -e PARSE_DASHBOARD_ALLOW_INSECURE_HTTP=1 --name my-parse-dashboard parseplatform/parse-dashboard
+
+====================================================================
+see https://github.com/liuznsn/parse-server-installation for example
+====================================================================
