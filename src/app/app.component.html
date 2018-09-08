@@ -1,14 +1,14 @@
 <div align="center">
   <h1>
-    Back4App Demo!
+    Parse-Server Live Query with Angular6 Demo (using docker-compose)
   </h1>
-  <img src="../assets/back4app.png">
+  <img src="../assets/parse-server.png">
 
-  <h2>Lista de tarefas: </h2>
-  <button (click)="clearCompleted()">Apagar finalizadas</button> &nbsp; <button (click)="clearAll()">Apagar todas</button>
+  <h2>Todo List </h2>
+  <button (click)="clearCompleted()">Delete finished ones</button> &nbsp; <button (click)="clearAll()">Delete all</button>
   <br>
   <br>
-  <input (keyup.enter)="saveTodo()" [(ngModel)]="title" placeholder="O que você não pode esquecer?"/>
+  <input (keyup.enter)="saveTodo()" [(ngModel)]="title" placeholder="What can't you miss?"/>
 
   <ul class="list">
     <li class="list-item" *ngFor="let todo of todos;">

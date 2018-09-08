@@ -1,0 +1,39 @@
+version: "3"
+services:
+# MongoDB image 
+    mongo:
+        image: mongo:windowsservercore
+        container_name: my-mongo
+        ports:
+            - "27017:27017"
+        volumes:
+            - .\mongodata\db:c:\data\db
+
+# Node.js parse-server application image
+    parse-server:
+        image: parseplatform/parse-server
+        container_name: my-parse-server
+        environment:
+            - PARSE_SERVER_MASTER_KEY=MASTER_KEY
+            - PARSE_SERVER_APPLICATION_ID=APPLICATION_ID
+            - PARSE_SERVER_DATABASE_URI=mongodb://mongo/test
+            - PARSE_SERVER_START_LIVE_QUERY_SERVER=true
+            - PARSE_SERVER_LIVE_QUERY={"classNames":["Todo"]}
+        depends_on:
+            - mongo
+        links:
+            - mongo
+        ports:
+            - "1337:1337"
+
+# Node.js parse-dashboard application image
+    parse-dashboard:
+        image: parseplatform/parse-dashboard
+        container_name: my-parse-dashboard
+        ports:
+            - "4040:4040"
+        environment:
+            - PARSE_DASHBOARD_ALLOW_INSECURE_HTTP=1
+            - PARSE_DASHBOARD_CONFIG={"apps":[{"appId":"APPLICATION_ID","serverURL":"http://localhost:1337/parse","masterKey":"MASTER_KEY","appName":"TestApp"}],"users":[{"user":"admin","pass":"admin"}]}
+        depends_on:
+            - parse-server
