@@ -72,4 +72,6 @@ You can look at file docker-compose.yml and change any configuration you want fo
 
 # Help
 
+For information, this repo uses [Gitflow Workflow](https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow).
+
 Feel free to contact me for support.
